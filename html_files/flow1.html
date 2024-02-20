@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Job Search Application</title>
+</head>
+<body>
+    <div id="app">
+        <h1>Welcome to the Job Search Application</h1>
+        <div id="login-container">
+            <button onclick="showLoginForm()">Login</button>
+            <button onclick="showRegistrationForm()">Register</button>
+        </div>
+        <div id="forms-container">
+            <!-- Login Form -->
+            <form id="login-form" style="display: none;">
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" required>
+                <button type="button" onclick="login()">Login</button>
+            </form>
+
+            <!-- Registration Form -->
+            <form id="registration-form" style="display: none;">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+                <label for="newEmail">Email:</label>
+                <input type="email" id="newEmail" required>
+                <label for="newPassword">Password:</label>
+                <input type="password" id="newPassword" required>
+                <button type="button" onclick="register()">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

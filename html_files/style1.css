@@ -1,0 +1,21 @@
+h1{
+    color: green;
+    text-align:center;
+
+}
+button{
+    background-color:blue;
+}
+p {
+    color:rgb(156,143,45);
+
+}
+body{
+    background-color: #ffff00;
+}
+#head1{
+    color:palegreen;
+}
+#head2{
+    color:black;
+}

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>GRADED LAB-1</title>
+    <style>
+        h1 {
+            text-align: center;
+            color: rgb(168, 105, 84);
+            border: 5px solid black;
+            border-radius: 30px;
+            background-color: rgb(249, 216, 175);
+            
+           
+        }
+
+        body {
+            background-color:rgb(247, 249, 190);
+            border: 8px double black;
+            padding: 20px;
+        }
+
+        #div1,
+        #div2,
+        #div3,#div10,#div11 {
+            border: 5px solid black;
+            padding: 20px;
+            color: black;
+            background-color: rgb(237, 214, 174);
+            border-radius: 30px;
+        }
+
+        h2 {
+            color: rgb(201, 133, 43);
+        }
+
+        form {
+            background-color: rgb(237, 214, 174);
+            border: 5px solid black;
+            padding: 20px;
+            border-radius: 30px;
+        }
+
+        p {
+            font-size: 17px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 2px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+        #studentTable{
+            color:brown;
+        }
+        h3{
+            color:rgb(201, 133, 43)
+        }
+    </style>
+</head>
+
+<body>
+    <h1>MY BIODATA</h1>
+
+    <h2><u>PERSONAL INFORMATION:</u></h2>
+    <div id="div1">
+        <p>NAME: VEERANKI SERVANI</p>
+        <p>FATHER NAME: VEERANKI SAIKRISHNA</p>
+        <p>MOTHER NAME: VEERANKI KALYANI</p>
+        <p>DOB: JUNE 11th, 2005</p>
+        <p>NATIVE PLACE: VIJAYAWADA</p>
+        <p>AGE: 18</p>
+    </div>
+
+    <h2><u>ACADEMIC PROFILE:</u></h2>
+    <div id="div2">
+        <p>COLLEGE: IIIT SRICITY, CSE 2nd YEAR</p>
+        <p>CGPA: 8.23</p>
+        <p>INTER COLLEGE: SARADA JUNIOR COLLEGE</p>
+        <p>TOTAL MARKS: 980/1000</p>
+        <p>SCHOOLING: NARAYANA JUNIOR HIGH SCHOOL</p>
+        <p>TOTAL MARKS: 690/700</p>
+        <h3><u>STUDY GOALS :</u></h3>
+        <P>PARTICIPATED IN SIH COMPETITION</P>
+        <p>COMPLETED OASIS INFO BYTE INTERNSHIP ON JAVA DEVELOPMENT</p>
+    </div>
+
+    <h2><u>EXTRA CURRICULAR ACTIVITY</u></h2>
+    <div id="div3">
+        <p>In my 10th grade, I secured second place in the scienceware event held in my school.</p>
+        <p>In my 5th grade, I got 1st prize for the dancing competition at our annual day celebrations.</p>
+    </div>
+
+    <br>
+
+    <h2><u>STUDENT INFORMATION:</u></h2>
+    <form>
+        <div id="div4">ENTER STUDENT NAME: <input type="text" id="name" placeholder=""></div>
+        <br>
+        <div id="div5">ENTER ROLLNO: <input type="number" id="rollNo"></div>
+        <BR>
+        <div id="div6">ENTER EMAIL-ID: <input type="email" id="email"></div>
+        <br>
+        <div id="div7">ENTER YOUR MARKS:
+            <BR>
+                <br>
+            <label for="subject1">Subject 1 Marks:</label>
+            <input type="number" id="subject1" required style="width: 20px;">
+        </div>
+
+
+        <div id="div8">
+            <label for="subject2">Subject 2 Marks:</label>
+            <input type="number" id="subject2" required style="width: 20px;">
+        </div>
+
+        <div id="div9">
+            <label for="subject3">Subject 3 Marks:</label>
+            <input type="number" id="subject3" required style="width: 20px;">
+        </div>
+    </form>
+    <h3><u> STUDENT DATA:</u></h3>
+    <div id = "div10">
+    <table id="studentTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Roll No.</th>
+                <th>Email</th>
+                <th>Subject 1</th>
+                <th>Subject 2</th>
+                <th>Subject 3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Student information will be displayed here dynamically -->
+        </tbody>
+    </table>
+</div>
+<br>
+    
+
+    <button onclick="submitForm()">Submit</button>
+
+    <section>
+        <h2><u>SORT ELEMENTS:</u></h2>
+        <div id="div11">
+        <label for="elementList">Enter comma-separated elements:</label>
+        <input type="text" id="elementList" required>
+
+        <label for="sortType">Sort Type:</label>
+        <select id="sortType">
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+        </select>
+
+        <label for="elementType">Element Type:</label>
+        <select id="elementType">
+            <option value="number">Number</option>
+            <option value="string">String</option>
+            <!-- Add more types as needed -->
+        </select>
+    </div>
+        <br>
+        
+
+        <button onclick="sortElements()">Sort</button>
+    </section>
+
+
+
+    <script>
+        function submitForm() {
+            // Fetch values from form
+            const name = document.getElementById('name').value;
+            const rollNo = document.getElementById('rollNo').value;
+            const email = document.getElementById('email').value;
+            const subject1 = document.getElementById('subject1').value;
+            const subject2 = document.getElementById('subject2').value;
+            const subject3 = document.getElementById('subject3').value;
+
+            // Validate fields
+            if (!name || !rollNo || !email || !subject1 || !subject2 || !subject3) {
+                alert('All fields are required!');
+                return;
+            }
+
+            // Add student information to table
+            const table = document.getElementById('studentTable').getElementsByTagName('tbody')[0];
+            const row = table.insertRow(table.rows.length);
+            const cell1 = row.insertCell(0);
+            const cell2 = row.insertCell(1);
+            const cell3 = row.insertCell(2);
+            const cell4 = row.insertCell(3);
+            const cell5 = row.insertCell(4);
+            const cell6 = row.insertCell(5);
+
+            cell1.innerHTML = name;
+            cell2.innerHTML = rollNo;
+            cell3.innerHTML = email;
+            cell4.innerHTML = subject1;
+            cell5.innerHTML = subject2;
+            cell6.innerHTML = subject3;
+
+            // Clear form fields
+            document.getElementById('name').value = '';
+            document.getElementById('rollNo').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('subject1').value = '';
+            document.getElementById('subject2').value = '';
+            document.getElementById('subject3').value = '';
+        }
+
+        function sortElements() {
+            // Fetch values from form
+            const elementList = document.getElementById('elementList').value;
+            const sortType = document.getElementById('sortType').value;
+            const elementType = document.getElementById('elementType').value;
+
+            // Convert comma-separated string to array
+            const elementsArray = elementList.split(',');
+
+            // Sort elements based on selected type and order
+            if (elementType === 'number') {
+                elementsArray.sort((a, b) => sortType === 'asc' ? a - b : b - a);
+            } else if (elementType === 'string') {
+                elementsArray.sort((a, b) => sortType === 'asc' ? a.localeCompare(b) : b.localeCompare(a));
+            }
+
+            // Display sorted elements
+            alert(`Sorted Elements (${sortType === 'asc' ? 'Ascending' : 'Descending'}): ${elementsArray.join(', ')}`);
+        }
+    </script>
+
+</body>
+
+</html>

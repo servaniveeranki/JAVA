@@ -1,0 +1,13 @@
+body{
+    background-color:black;
+}
+#logo{
+    color:orange;
+}
+a{
+    color:white;
+    margin:20px;
+}
+button{
+    margin:10px;
+}
